@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	  <typeAlias alias="member" type="com.bodyshop.main.dto.MemberDTO"/>
+	  <typeAlias type="com.bodyshop.main.dto.ProductDTO" alias="product"/>
+	  <typeAlias alias="productreview" type="com.bodyshop.main.dto.ProductReviewDTO"/>
+	  <typeAlias alias="pcomment" type="com.bodyshop.main.dto.ProductCommentDTO"/>
+	</typeAliases>
+</configuration>

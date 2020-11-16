@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Member"> 
+ 
+ <!-- 회원가입 -->
+ <insert id="memberjoin" parameterType="member">
+    INSERT INTO MEMBER(MID,MPASSWORD,MNAME,MPOSTNUM,MADDRESS1,MADDRESS2,MADDRESS3,MPHONE,MEMAIL,MEMAILID,MEDOMAIN,MBIRTH,MCLASS,MFILENAME,MFAVORITE,MCONTENTS) VALUES(#{mid},#{mpassword},#{mname},#{mpostnum},#{maddress1},#{maddress2},#{maddress3},#{mphone},#{memail},#{memailid},#{medomain},#{mbirth},#{mclass},#{mfilename},#{mfavorite},#{mcontents})
+    
+    </insert>
+ 
+ 
+ <!-- 아이디 중복확인 -->
+ <select id="idOverlap" parameterType="String" resultType="String">
+    SELECT MID FROM MEMBER WHERE MID=#{mid}
+    </select>
+    
+    <!-- 이메일 중복체크 -->
+    <select id="emOverlap" parameterType="member" resultType="String">
+    SELECT MID FROM MEMBER WHERE MEMAILID=#{memailid} AND MEDOMAIN=#{medomain}
+    </select>
+    <!--가입 이메일처리 -->
+     <update id="verifymember" parameterType="member">
+    UPDATE MEMBER SET MVERIFY='Y' WHERE MEMAILID=#{memailid} AND MEDOMAIN=#{medomain}
+    </update>
+    
+    <!-- 등급확인 -->
+    <select id="mclass" parameterType="member" resultType="String">
+    SELECT MCLASS FROM MEMBER WHERE MID=#{mid} 
+    </select>
+    
+    <!-- 로그인 -->
+    <select id="memberlogin" parameterType="member" resultType="String">
+    SELECT MID FROM MEMBER WHERE MID=#{mid} AND MPASSWORD=#{mpassword}
+    </select>
+     <!-- 이메일 밸류값 확인-->
+    <select id="emailresult" parameterType="member" resultType="String">
+    SELECT MVERIFY FROM MEMBER WHERE MID=#{mid}
+    </select>
+    
+    <!-- 카카오 로그인 -->
+    <select id="kakaologin" parameterType="String" resultType="String">
+    SELECT MID FROM MEMBER WHERE KAKAOID=#{kakaoId}
+    </select>
+    <!-- 카카오 회원가입 -->
+     <insert id="kakaomemberjoin" parameterType="member">
+    INSERT INTO MEMBER(MID,KAKAOID,MPASSWORD,MNAME,MPOSTNUM,MADDRESS1,MADDRESS2,MADDRESS3,MPHONE,MEMAIL,MEMAILID,MEDOMAIN,MBIRTH,MCLASS,MFILENAME,MFAVORITE,MCONTENTS) VALUES(#{mid},#{kakaoId},#{mpassword},#{mname},#{mpostnum},#{maddress1},#{maddress2},#{maddress3},#{mphone},#{memail},#{memailid},#{medomain},#{mbirth},#{mclass},#{mfilename},#{mfavorite},#{mcontents})
+    </insert>
+    <!-- 등급확인 카카오 -->
+    <select id="mclasskakao" parameterType="String" resultType="String">
+    SELECT MCLASS FROM MEMBER WHERE KAKAOID=#{kakaoId} 
+    </select>
+     <!-- 카카오 이메일 밸류값 확인-->
+    <select id="emailresultkakao" parameterType="String" resultType="String">
+    SELECT MVERIFY FROM MEMBER WHERE KAKAOID=#{kakaoId}
+    </select>
+    <!-- 네이버 회원가입 -->
+    <insert id="navermemberjoin" parameterType="member">
+    INSERT INTO MEMBER(MID,NAVERID,MPASSWORD,MNAME,MPOSTNUM,MADDRESS1,MADDRESS2,MADDRESS3,MPHONE,MEMAIL,MEMAILID,MEDOMAIN,MBIRTH,MCLASS,MFILENAME,MFAVORITE,MCONTENTS) VALUES(#{mid},#{naverId},#{mpassword},#{mname},#{mpostnum},#{maddress1},#{maddress2},#{maddress3},#{mphone},#{memail},#{memailid},#{medomain},#{mbirth},#{mclass},#{mfilename},#{mfavorite},#{mcontents})
+    </insert>
+    <!-- 네이버 로그인 -->
+    <select id="naverlogin" parameterType="String" resultType="String">
+    SELECT MID FROM MEMBER WHERE NAVERID=#{naverId}
+    </select>
+    <!-- 등급확인 네이버 -->
+    <select id="mclassnaver" parameterType="String" resultType="String">
+    SELECT MCLASS FROM MEMBER WHERE NAVERID=#{naverId} 
+    </select>
+     <!-- 네이버 이메일 밸류값 확인-->
+    <select id="emailresultnaver" parameterType="String" resultType="String">
+    SELECT MVERIFY FROM MEMBER WHERE NAVERID=#{naverId}
+    </select>
+    <!-- 회원 목록조회-->
+    <select id="memberlist" resultType="member">
+      SELECT * FROM MEMBER
+    </select>
+    <!-- 상세조회 -->
+    <select id ="memberview" parameterType="String" resultType="member">
+    SELECT * FROM MEMBER WHERE MID=#{mid}
+    </select>
+    <!-- 회원 업데이트 -->
+    <update id="memberupdate" parameterType="member">
+    UPDATE MEMBER SET MFILENAME=#{mfilename},MNAME=#{mname},MPHONE=#{mphone},MEMAIL=#{memail},MPOSTNUM=#{mpostnum},MADDRESS1=#{maddress1},MADDRESS2=#{maddress2},MADDRESS3=#{maddress3},MFAVORITE=#{mfavorite},MCONTENTS=#{mcontents} WHERE MID=#{mid}
+    </update>
+    <!-- 삭제 -->
+     <delete id="memberdelete" parameterType="String">
+    DELETE FROM MEMBER WHERE MID=#{mid}
+    </delete>
+
+	
+	
+	
+	
+	
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

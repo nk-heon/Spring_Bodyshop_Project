@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Preview"> 
+    <insert id="prwrite" parameterType="productreview">
+       INSERT INTO PRODUCTREVIEW(PRNUMBER,PRPMID,PRID,PRMID,PRCONTENTS,STAR) VALUES(PREVIEW_SEQ.NEXTVAL,#{prpmid},#{prid},#{prmid},#{prcontents},#{star})
+    </insert>
+ 	
+ 	<select id="prlist" parameterType="String" resultType="productreview">
+ 	  SELECT * FROM PRODUCTREVIEW WHERE PRID = #{prid}
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ </mapper>
