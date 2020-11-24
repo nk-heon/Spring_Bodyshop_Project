@@ -77,6 +77,30 @@ public class MemberService {
 		}
 		return resultMsg;
 	}
+	//아이디 찾기
+	public String idserch(MemberDTO member) {
+		String resultMsg = null;
+		String checkResult = mDAO.idserch(member);
+		System.out.println("메세지값"+checkResult);
+		if(checkResult != null) {
+			resultMsg = checkResult;
+		}else {
+			resultMsg = "no";
+		}
+		return resultMsg;
+	}
+	//비밀번호 찾기
+	public String pwserch(MemberDTO member) {
+		String resultMsg = null;
+		String checkResult = mDAO.pwserch(member);
+		System.out.println("서비스 리절트값"+checkResult);
+		if(checkResult == null) {
+			resultMsg = "NO";
+		}else {
+			resultMsg = "OK";
+		}
+		return resultMsg;
+	}
 	//회원가입 이메일처리
 	public void verifymember(MemberDTO member) {
             mDAO.verifymember(member);	
@@ -218,6 +242,14 @@ public class MemberService {
 		}
 		return mav;
 	}
+	//비밀번호찾기 비번변경
+	public void pwupdate(MemberDTO member) {
+		System.out.println("비번찾기 받는값"+member);
+		mDAO.pwupdate(member);
+		
+	}
+	
+	
 	
 
 

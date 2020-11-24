@@ -26,6 +26,7 @@ import com.bodyshop.main.api.NaverJoinApi;
 import com.bodyshop.main.api.NaverLoginApi;
 import com.bodyshop.main.dto.MemberDTO;
 import com.bodyshop.main.service.MemberService;
+import com.bodyshop.main.service.RandomService;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 
 
@@ -56,6 +57,9 @@ public class MemberController {
 	@Autowired
 	private NaverLoginApi naverLoginApi;
 	
+	@Autowired
+	private RandomService rService;
+	
 	@RequestMapping(value = "/Join")
 	public String join() {
 		return "Join";
@@ -79,6 +83,16 @@ public class MemberController {
 	@RequestMapping(value="/memberloginform")
 	public String memberloginform() {
 		return "memberv/MemberLogin";
+	}
+	//아이디 비밀번호찾기 주소이동
+	@RequestMapping(value="/serchmemberform")
+	public String serchmemberform() {
+		return "memberv/SerchMember";
+	}
+	//채팅방
+	@RequestMapping(value="/chatform")
+	public String chatform() {
+		return "Chat";
 	}
 	//회원가입
 	@RequestMapping(value="/memberjoin")
@@ -111,6 +125,34 @@ public class MemberController {
 			return "memberv/signSuccess";
 			
 		}
+		//비밀번호찾기
+		@RequestMapping(value="/pwserch")
+		public @ResponseBody String pwserch(@ModelAttribute MemberDTO member) throws MessagingException, UnsupportedEncodingException {
+			String checkResult = mService.pwserch(member);
+			System.out.println("리절트값"+checkResult);
+			String resultMsg = null;
+			if(checkResult == "OK") {
+				System.out.println("---> mybatis로 insertMember() 기능 처리 및 해당 이메일로 이메일 발송");
+				String random = rService.randompw();
+				System.out.println("랜덤:"+random);
+				member.setMpassword(random);
+				mService.pwupdate(member);
+				MailHandler sendMail = new MailHandler(mailSender);
+				sendMail.setSubject("[비밀번호 찾기]");
+				sendMail.setText(new StringBuffer().append("<h1>임시 비밀번호</h1>")
+						.append("Body Shop을 이용해주셔서 감사합니다.<br>")
+						.append("임시 비밀번호 입니다  "+random).toString());
+				sendMail.setFrom("BodyShop@BodyShop.com", "Body Shop");
+				sendMail.setTo(member.getMemail());
+				sendMail.send();
+				resultMsg = "ok";
+				
+			}else {
+				resultMsg = "no";
+			}
+			return resultMsg;
+		}
+		
 	
 	//아이디 중복확인
 		@RequestMapping(value="/idoverlap")
@@ -128,6 +170,12 @@ public class MemberController {
 			String resultMsg = mService.emOverlap(member);
 			return resultMsg;
 		}
+	//아이디 찾기
+	@RequestMapping(value="/idserch")
+	public @ResponseBody String idserch(@ModelAttribute MemberDTO member) {
+		String resultMsg = mService.idserch(member);
+		return resultMsg;
+	}
 	//로그인
 		@RequestMapping(value="/memberlogin")
 		public ModelAndView memberlogin(@ModelAttribute MemberDTO member) {

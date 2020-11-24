@@ -630,6 +630,65 @@ table {
 }
 /*----------  */
 </style>
+<style>
+.text_1 {
+	width: 100%;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+table.join_information {
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	border-collapse: collapse;
+}
+
+table.join_information th {
+	text-align: left;
+	padding-left: 10px;
+	color: #000;
+}
+
+table.join_information td {
+	padding: 8px 10px 8px 0;
+	min-height: 30px;
+}
+
+table.join_information th, table.join_information td {
+	border-top: 1px solid #ddd;
+}
+
+table.join_information input[type='text'], table.join_information input[type='tel'],
+	table.join_information input[type='password'] {
+	margin: 0px;
+	padding: 0px;
+	text-indent: 5px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	height: 30px;
+	line-height: 30px;
+}
+
+table.join_information tr:first-child td {
+	border-top: none
+}
+
+.btn_important_large {
+	display: inline-block;
+	background-color: #303030;
+	border: none;
+	border-bottom: 6px solid #565656;
+	height: 48px;
+	line-height: 48px;
+	font-size: 18px;
+	font-family: dotum;
+	font-weight: bold;
+	color: #ffffff;
+	letter-spacing: -1px;
+}
+</style>
 
 
 <body>
@@ -750,66 +809,7 @@ table {
 			<div class="bg_gray pd10">
 				<form name="registFrm" id="registFrm" target="actionFrame"
 					method="post" action="memberjoin" enctype="multipart/form-data">
-					<input type="hidden" name="mtype" value="member">
-					<style>
-.text_1 {
-	width: 100%;
-	padding: 0px !important;
-	margin: 0px !important;
-}
-
-table.join_information {
-	box-sizing: border-box;
-	width: 100%;
-	border: 1px solid #ddd;
-	background-color: #fff;
-	border-collapse: collapse;
-}
-
-table.join_information th {
-	text-align: left;
-	padding-left: 10px;
-	color: #000;
-}
-
-table.join_information td {
-	padding: 8px 10px 8px 0;
-	min-height: 30px;
-}
-
-table.join_information th, table.join_information td {
-	border-top: 1px solid #ddd;
-}
-
-table.join_information input[type='text'], table.join_information input[type='tel'],
-	table.join_information input[type='password'] {
-	margin: 0px;
-	padding: 0px;
-	text-indent: 5px;
-	border: 1px solid #ddd;
-	background-color: #fff;
-	height: 30px;
-	line-height: 30px;
-}
-
-table.join_information tr:first-child td {
-	border-top: none
-}
-
-.btn_important_large {
-	display: inline-block;
-	background-color: #303030;
-	border: none;
-	border-bottom: 6px solid #565656;
-	height: 48px;
-	line-height: 48px;
-	font-size: 18px;
-	font-family: dotum;
-	font-weight: bold;
-	color: #ffffff;
-	letter-spacing: -1px;
-}
-</style>
+				
 					<table class="join_information" width="100%" border="0"
 						cellpadding="0">
 						<colgroup>
@@ -853,7 +853,7 @@ table.join_information tr:first-child td {
 								<!--아이디: <input type="text" name="mid" id="mid" onkeyup="idOverlap()"> <input
 			type="button" value="아이디중복확인" onclick="idOverlas()"><br>
 			<span id="idch"></span><br>-->
-								</td>
+								
 							</tr>
 							<tr>
 								<th>비밀번호 <span class="join_required">*</span></th>
@@ -873,9 +873,9 @@ table.join_information tr:first-child td {
 								<th>주소 <span class="join_required">*</span></th>
 								<td width="5"></td>
 								<td><span><input type="text" name="mpostnum" id="sample6_postcode" placeholder="우편번호"
-										 size="7" readonly=""></span> <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+										 size="7"></span> <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 									<div style="margin-top: 3px;">
-										<input type="text" name="maddress1" id="sample6_address" placeholder="주소"  class="address " style="width: 100%;" readonly=""> 
+										<input type="text" name="maddress1" id="sample6_address" placeholder="주소"  class="address " style="width: 100%;"> 
 										<input type="text" name="maddress2" id="sample6_detailAddress" placeholder="상세주소" class="address_street hide" value=""style="width: 100%;" >
 									</div> <span id="address_view"
 									style="display: none; padding-top: 5px;"></span>
@@ -903,7 +903,7 @@ table.join_information tr:first-child td {
 											style="width: 30%">
 									</div>
 									<div class="pdb5">
-										<select  name="select_email" onChange="selectEmail(this)">>
+										<select  name="select_email" onChange="selectEmail(this)">
 											<option value="" selected>직접선택</option>
 											<option value="naver.com">naver.com</option>
 											<option value="gmail.com">gmail.com</option>

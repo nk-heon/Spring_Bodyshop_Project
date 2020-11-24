@@ -30,6 +30,14 @@ public class MemberDAO {
 	public String emOverlap(MemberDTO member) {
 		return sql.selectOne("Member.emOverlap", member);
 	}
+	//아이디 찾기
+	public String idserch(MemberDTO member) {
+		return sql.selectOne("Member.idserch", member);
+	}
+	//비밀번호 찾기
+	public String pwserch(MemberDTO member) {
+		return sql.selectOne("Member.pwserch", member);
+	}
     //가입이메일처리
 	public void verifymember(MemberDTO member) {
          sql.update("Member.verifymember", member);
@@ -87,6 +95,11 @@ public class MemberDAO {
 	public int memberdelete(String mid) {
 		return sql.delete("Member.memberdelete", mid);
 	}
+	public void pwupdate(MemberDTO member) {
+		sql.update("Member.pwupdate", member);	
+	}
+	
+	
 	
 	
 

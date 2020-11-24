@@ -614,6 +614,7 @@ to {
 			<div class="header-content clearfix" style="margin-right: 60px;">
 				<nav class="navigation" role="navigation">
 					<ul class="primary-nav">
+					    <li><a onclick="location.href='chatform'">채팅방 </a></li>
 						<li><a href="#section1">운동 후기 </a></li>
 						<li><a href="#section2">베스트 상품 </a></li>
 						<li><a href="#section3">트레이너 </a></li>

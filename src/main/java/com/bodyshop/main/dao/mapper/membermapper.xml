@@ -20,6 +20,14 @@
     <select id="emOverlap" parameterType="member" resultType="String">
     SELECT MID FROM MEMBER WHERE MEMAILID=#{memailid} AND MEDOMAIN=#{medomain}
     </select>
+    <!-- 아이디 찾기 -->
+    <select id="idserch" parameterType="member" resultType="String">
+    SELECT MID FROM MEMBER WHERE MNAME=#{mname} AND MPHONE=#{mphone}
+    </select>
+    <!-- 비밀번호 찾기 -->
+    <select id="pwserch" parameterType="member" resultType="String">
+    SELECT MID FROM MEMBER WHERE MID=#{mid} AND MEMAIL=#{memail}
+    </select>
     <!--가입 이메일처리 -->
      <update id="verifymember" parameterType="member">
     UPDATE MEMBER SET MVERIFY='Y' WHERE MEMAILID=#{memailid} AND MEDOMAIN=#{medomain}
@@ -87,6 +95,10 @@
      <delete id="memberdelete" parameterType="String">
     DELETE FROM MEMBER WHERE MID=#{mid}
     </delete>
+    <!-- 비밀번호찾기시 임시비밀번호로 업데이트 -->
+    <update id="pwupdate" parameterType="member">
+    UPDATE MEMBER SET MPASSWORD=#{mpassword} WHERE MID=#{mid} AND MEMAIL=#{memail}
+    </update>
 
 	
 	

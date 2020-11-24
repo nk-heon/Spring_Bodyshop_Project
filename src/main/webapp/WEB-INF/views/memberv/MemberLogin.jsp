@@ -1075,31 +1075,26 @@ button {
 				<div class="pd10">
 					<!-- 로그인폼 -->
 					<div class="login_form_box">
-						<form name="loginForm" target="actionFrame" method="post"
-							action="memberlogin"
-							onsubmit="return submitLoginForm(this)">
-							<input type="hidden" name="return_url" value="/member/login">
-							<input type="hidden" name="order_auth" value="0">
-							
-							<fieldset>
+						
 							<form action="memberlogin" method="post">
 							<input type="text" name="mid" id="mid" value=""
 									placeholder="아이디" tabindex="1" required="required">
-							 <input type="password" password="mpassword" name="mpassword"
+							 <input type="password" name="mpassword"
 									id="mpassword" placeholder="비밀번호" tabindex="2"
 									required="required">
-										<div class="fright">
+									
 									<a href="../member/find?mode=findid">아이디</a> /<a
 										href="../member/find?mode=findpw">비밀번호 찾기</a>
-								</div>
-					</div>
-					<input type="submit" value="로그인"
+										<input type="submit" value="로그인"
 						class="login_btn btn_important_large" style="width: 100%;"
 						tabindex="3">
 							</form>
-							</fieldset>
+								</div>
+					</div>
+					
+						
 							
-							</form>
+					
 				</div>
 				<div class="mgt5"
 					style="margin-top: 15px; border-top: 2px solid #ddd">
@@ -1109,6 +1104,7 @@ button {
 						onclick="location.href='Join'" 
 						style="width: 100%">회원가입</button>
 				</div>
+				<a href="serchmemberform">아이디/비밀번호찾기</a>
 			</div>
 
 		</div>
@@ -1122,7 +1118,7 @@ button {
    <img src="${pageContext.request.contextPath}/resources/img/네이버 아이디로 로그인_축약형_Green.png/">
 </a>
 		</div>
-	</div>
+
 
 <c:if test="${notVerify}">
 <script>
