@@ -25,5 +25,6 @@ public class ProductCommentDAO {
 	public int pcommentre1(ProductCommentDTO pcDTO) {
 		return sql.update("Pcomment.pcommentre1", pcDTO);
 	}
+	
 
 }

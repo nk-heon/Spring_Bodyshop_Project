@@ -36,5 +36,12 @@ public class ProductCommentController {
 		mav = pcService.pcommentre1(pcDTO);
 		return mav;
 	}
+	//문의 상세보기
+	@RequestMapping(value="/pcommenview")
+	public ModelAndView pcommenview(@ModelAttribute ProductCommentDTO pcDTO) {
+		mav = pcService.pcommenview(pcDTO);
+			return mav;
+		}
 
 }
+

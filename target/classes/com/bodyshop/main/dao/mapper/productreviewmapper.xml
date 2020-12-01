@@ -4,22 +4,11 @@
  
  <mapper namespace="Preview"> 
     <insert id="prwrite" parameterType="productreview">
-       INSERT INTO PRODUCTREVIEW(PRNUMBER,PRPMID,PRID,PRMID,PRCONTENTS,STAR) VALUES(PREVIEW_SEQ.NEXTVAL,#{prpmid},#{prid},#{prmid},#{prcontents},#{star})
+       INSERT INTO PRODUCTREVIEW(PRNUMBER,PRPMID,PRID,PRMID,PRCONTENTS,STAR,PRDATE) VALUES(PREVIEW_SEQ.NEXTVAL,#{prpmid},#{prid},#{prmid},#{prcontents},#{star},SYSDATE)
     </insert>
  	
  	<select id="prlist" parameterType="String" resultType="productreview">
  	  SELECT * FROM PRODUCTREVIEW WHERE PRID = #{prid}
  	</select>
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
+
  </mapper>

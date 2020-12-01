@@ -64,6 +64,11 @@ public class MemberController {
 	public String join() {
 		return "Join";
 	}
+	//회원가입 페이지 이동
+	@RequestMapping(value="/Joinform")
+	public String JoinForm() {
+		return "memberv/MemberJoin";
+	}
 	//일반회원가입 주소이동
 	@RequestMapping(value="/generalmemberjoinform")
 	public String memberjoinform() {
@@ -104,7 +109,7 @@ public class MemberController {
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[이메일 인증]");
 		sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
-				.append("Body Shop에 가입해주셔서 감사합니다.<br><a href='http://localhost:8091/main/verify.do?memailid=" + member.getMemailid() + "&medomain=" + member.getMedomain())
+				.append("Body Shop에 가입해주셔서 감사합니다.<br><a href='http://localhost:8093/main/verify.do?memailid=" + member.getMemailid() + "&medomain=" + member.getMedomain())
 				.append("' target='_blenk'>이메일 인증 확인</a>").toString());
 		sendMail.setFrom("BodyShop@BodyShop.com", "Body Shop");
 		sendMail.setTo(member.getMemailid() + "@" + member.getMedomain());

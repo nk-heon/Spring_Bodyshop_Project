@@ -16,6 +16,7 @@ public class ProductCommentDTO {
 	private String pcresult;
 	private int secret;
 	private String result;
-	
+	private String pcdate;
+	private String pcredate;
 
 }

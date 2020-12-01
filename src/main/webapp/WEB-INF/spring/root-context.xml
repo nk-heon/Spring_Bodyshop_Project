@@ -33,11 +33,11 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- 메일보내기 -->
-   <bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+	<bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
       <property name="host" value="smtp.gmail.com" />
       <property name="port" value="587" />
-      <property name="username" value="qkrxogns21@gmail.com" />
-      <property name="password" value="tthh1221" />
+      <property name="username" value="ng4846@gmail.com" />
+      <property name="password" value="rlckd1515()" />
    
       <property name="javaMailProperties">
          <props>

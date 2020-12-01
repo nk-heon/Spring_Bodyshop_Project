@@ -7,5 +7,11 @@
 	  <typeAlias type="com.bodyshop.main.dto.ProductDTO" alias="product"/>
 	  <typeAlias alias="productreview" type="com.bodyshop.main.dto.ProductReviewDTO"/>
 	  <typeAlias alias="pcomment" type="com.bodyshop.main.dto.ProductCommentDTO"/>
+	  <typeAlias type="com.bodyshop.main.dto.BoardDTO" alias="board"/>
+      <typeAlias type="com.bodyshop.main.dto.BoardPageDTO" alias="boardpage"/>
+      <typeAlias type="com.bodyshop.main.dto.BoardCommentDTO" alias="comment"/>
+      <typeAlias type="com.bodyshop.main.dto.CartDTO" alias="cart"/>
+      <typeAlias type="com.bodyshop.main.dto.PagingDTO" alias="page"/>
+      <typeAlias type="com.bodyshop.main.dto.BuyingDTO" alias="buyq"/>
 	</typeAliases>
 </configuration>

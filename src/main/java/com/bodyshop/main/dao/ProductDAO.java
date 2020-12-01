@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bodyshop.main.dto.PagingDTO;
 import com.bodyshop.main.dto.ProductDTO;
 
 @Repository
@@ -39,6 +40,12 @@ public int ProductWrite(ProductDTO product) {
 	public int ProductUpdateProcess(ProductDTO product) {
 		
 		return sql.update("Product.productUpdateProcess",product);
+	}
+	public int listCount(PagingDTO paging) {
+		return sql.selectOne("Product.productListCount",paging);
+	}
+	public List<PagingDTO> productListPaging(PagingDTO paging) {
+		return sql.selectList("Product.productListPaging", paging);
 	}
 
 

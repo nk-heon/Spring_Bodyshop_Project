@@ -1,12 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+  width:60%;
+  margin-left:20%;
+  margin-height:0%;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+.a1 {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
 <script>
 function sample6_execDaumPostcode() {
     new daum.Postcode({
@@ -56,29 +124,47 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 </script>
+
+
+
+
 </head>
 <body>
-<h2>MemberUpdate.jsp</h2>
-	<form action="memberupdateprocess" method="post" name="updateform" enctype="multipart/form-data">
-	<c:if test="${sessionScope.mclass eq '트레이너'}">
-	        프로필사진 : <img src="resources/uploadfile/${memberupdate.mfilename}" width="200" height="200"><br>
-	       사진변경 : <input type="file" name="mfile" id="mfile" value="${memberupdate.mfilename}"><br>
-	       </c:if>
-	       <c:if test="${sessionScope.mclass eq '일반' or sessionScope.mclass eq '판매'}">
+
+<form action="memberupdateprocess" method="post" name="updateform" enctype="multipart/form-data">
+  <div class="container">
+    <h1>정보 수정</h1>
+    <p>BodyShop MemberUpdate</p>
+    <hr>
+   <c:if test="${sessionScope.mclass eq '트레이너'}">
+    <label for="mfile"><b>프로필</b></label>
+	       <img src="resources/uploadfile/${memberupdate.mfilename}" width="200" height="200"><br>
+	       <input type="file" name="mfile" id="mfile" value="${memberupdate.mfilename}"><br>
+   </c:if>
+   <c:if test="${sessionScope.mclass eq '일반' or sessionScope.mclass eq '판매'}">
 	       <input type="file" name="mfile" id="mfile" value="${memberupdate.mfilename}" style="display:none">
-		</c:if>
-		아이디 : <input type="text" name="mid" id="mid" value="${memberupdate.mid}" readonly><br>
-		이름 : <input type="text" name="mname" id="mname" value="${memberupdate.mname}"><br>
-		이메일 : <input type="text" name="memail" id="memail" value="${memberupdate.memail}"><br>
-		휴대폰 번호 : <input type="text" name="mphone" id="mphone" value="${memberupdate.mphone}"><br>
-		주소: <input type="text" name="mpostnum" id="sample6_postcode" value="${memberupdate.mpostnum}" placeholder="우편번호">
+   </c:if>
+   <label for="mid"><b>아이디</b></label>
+   		   <input type="text" name="mid" id="mid" value="${memberupdate.mid}" readonly><br>
+   	<label for="mname"><b>이름</b></label>
+	  	   <input type="text" name="mname" id="mname" value="${memberupdate.mname}"><br>
+	<label for="memail"><b>이메일</b></label>
+	 	   <input type="text" name="memail" id="memail" value="${memberupdate.memail}"><br>
+	<label for="mphone"><b>휴대폰 번호</b></label>
+		   <input type="text" name="mphone" id="mphone" value="${memberupdate.mphone}"><br>
+
+    <label for="maddress"><b>주소</b></label>
+    		 <input type="text" name="mpostnum" id="sample6_postcode" value="${memberupdate.mpostnum}" placeholder="우편번호">
              <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
              <input type="text" name="maddress1" id="sample6_address" value="${memberupdate.maddress1}" placeholder="주소"><br>
              <input type="text" name="maddress2" id="sample6_detailAddress" value="${memberupdate.maddress2}" placeholder="상세주소">
              <input type="text" name="maddress3" id="sample6_extraAddress" value="${memberupdate.maddress3}" placeholder="참고항목"><br>
-                 회원등급 : ${memberupdate.mclass}<br>
-               <c:if test="${sessionScope.mclass eq '일반' or sessionScope.mclass eq '트레이너'}">
-               관심분야 : <select name="mfavorite" id="mfavorite">
+     <label for="mclass"><b>회원등급</b></label>         
+                 ${memberupdate.mclass}<br>
+
+    <label for="mfavorite"><b>관심분야</b></label>
+    <c:if test="${sessionScope.mclass eq '일반' or sessionScope.mclass eq '트레이너'}">
+          		<select name="mfavorite" id="mfavorite">
                        <option value = "${memberupdate.mfavorite}" selected="selected">${memberupdate.mfavorite}</option>
                        <option value = "유산소">유산소</option>
                        <option value = "무산소">무산소</option>
@@ -88,16 +174,24 @@ function sample6_execDaumPostcode() {
                <c:if test="${sessionScope.mclass eq '판매'}">
                <input type="hidden" name="mfavorite" id="mfavorite">
                        </c:if>
-                       <c:if test="${sessionScope.mclass eq '트레이너'}">
-                       자기 소개 : <textarea rows="10" cols="10" name="mcontents" id="mcontents">${memberupdate.mcontents}</textarea><br>
+                      <c:if test="${sessionScope.mclass eq '트레이너'}">
+                      <label for="psw-repeat"><b>자기소개</b></label>
+                      <textarea rows="10" cols="10" name="mcontents" id="mcontents">${memberupdate.mcontents}</textarea><br>
                        </c:if>
                        <c:if test="${sessionScope.mclass eq '일반' or sessionScope.mclass eq'판매'}">
                        <input type="hidden" name="mcontents" id="mcontents">
                        </c:if>
-    
-    <button>정보수정</button>             
-	</form>
-	
+
+    <hr>
+    <p>상품을 문의하시겠습니까?? <a href="#" class="a1">상품문의</a>.</p>
+
+    <button type="submit" class="registerbtn">정보 수정</button>
+  </div>
+  
+  <div class="container signin">
+    <p>고객센터로 이동하시겠습니까?? <a href="#" class="a1">고객센터</a>.</p>
+  </div>
+</form>
 
 </body>
 </html>

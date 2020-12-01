@@ -4,11 +4,11 @@
  
  <mapper namespace="Product">
  
- <insert id="productWrite" parameterType="product">
+  <insert id="productWrite" parameterType="product">
 
  
- 	INSERT INTO PRODUCT (PPRODUCT,PMID,PID,PNAME,PPRICE,PSTOCK,PDESC,PFILENAME) 
- 	VALUES (#{pproduct},#{pmid},#{pid},#{pname},#{pprice},#{pstock},#{pdesc},#{pfilename})
+ 	INSERT INTO PRODUCT (PPRODUCT,PPRODUCT2,PMID,PID,PNAME,PPRICE,PSTOCK,PDESC,PFILENAME) 
+ 	VALUES (#{pproduct},#{pproduct2},#{pmid},#{pid},#{pname},#{pprice},#{pstock},#{pdesc},#{pfilename})
  
  </insert>
  
@@ -35,10 +35,21 @@
  
  <insert id="productUpdateProcess" parameterType="product">
  
- 	UPDATE PRODUCT SET PPRODUCT=#{pproduct},PNAME=#{pname},PPRICE=#{pprice},PSTOCK=#{pstock},PDESC=#{pdesc},PFILENAME=#{pfilename} WHERE PID=#{pid}
+ 	UPDATE PRODUCT SET PPRODUCT=#{pproduct},PPRODUCT2=#{pproduct2},PNAME=#{pname},PPRICE=#{pprice},PSTOCK=#{pstock},PDESC=#{pdesc},PFILENAME=#{pfilename} WHERE PID=#{pid}
  	
  
  </insert>
+
+
+	<select id="productListCount" resultType="int">
+		SELECT COUNT(PID) FROM PRODUCT WHERE PPRODUCT=#{pproduct}
+	</select>
+	
+	<select id="productListPaging" parameterType="page" resultType="product">
+		SELECT * FROM (SELECT B.*, ROW_NUMBER() OVER(ORDER BY PNAME DESC)
+			AS RN FROM PRODUCT B WHERE PPRODUCT=#{pproduct}) WHERE RN BETWEEN #{startRow} AND #{endRow}
+
+	</select>
   
  
  </mapper>

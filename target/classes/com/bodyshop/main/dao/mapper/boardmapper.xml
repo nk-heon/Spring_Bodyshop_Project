@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Board"> 
+ 	
+ 	<insert id="boardWriteFile" parameterType="board">
+ 		INSERT INTO ABOARD(AMID,ANUM,ADATE,ATYPE,ATITLE,ACONTENTS,AHITS,AFILENAME)
+ 			VALUES(#{amid},ABOARD_SEQ.NEXTVAL,SYSDATE,#{atype},#{atitle},#{acontents},0,#{afilename})
+ 	</insert>
+ 
+ 	<select id="boardListCount" resultType="int">
+ 		SELECT COUNT(ANUM) FROM ABOARD  WHERE ATYPE=#{types}
+ 	</select>
+ 	
+ 	<select id="boardListPaging" parameterType="boardpage" resultType="board">
+ 	SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY ANUM DESC)AS RN FROM ABOARD A WHERE ATYPE=#{types})
+ 			WHERE RN BETWEEN #{startRow} AND #{endRow}
+ 	</select>
+ 	
+ 	<select id="boardView" parameterType="int" resultType="board">
+		SELECT * FROM ABOARD WHERE ANUM=#{anum}
+	</select>
+	
+	<update id="boardHits" parameterType="int">
+		UPDATE ABOARD SET AHITS=AHITS+1 WHERE ANUM=#{anum}
+	</update>
+	
+	<delete id="boardDelete" parameterType="int">
+		DELETE FROM ABOARD WHERE ANUM=#{anum}
+	</delete>
+	
+	<update id="boardUpdate" parameterType="board">
+		UPDATE ABOARD SET ATITLE=#{atitle}, ACONTENTS=#{acontents} WHERE ANUM=#{anum}
+	</update>
+	
+	<select id="boardSearch" resultType="board" parameterType="java.util.HashMap">
+		SELECT * FROM ABOARD
+			<include refid="search"></include>
+	</select>
+	
+	<select id="boardListCount1" resultType="int">
+ 		SELECT COUNT(ANUM) FROM ABOARD  WHERE AMID LIKE '%'||#{types}||'%' OR ATITLE LIKE '%'||#{types}||'%'
+ 	</select>
+	
+	<sql id="search">
+		<choose>
+			<when test="type == 'searchtitle'">
+				WHERE ATITLE LIKE '%'||#{word}||'%'
+			</when>
+			<when test="type == 'searchwriter'">
+				WHERE AMID LIKE '%'||#{word}||'%'
+			</when>
+		</choose>
+	</sql>
+	
+	
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

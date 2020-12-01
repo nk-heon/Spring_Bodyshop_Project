@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Buy">
+	
+ 	<insert id="buyinsert" parameterType="buyq">
+ 	
+ 		INSERT INTO BUY(PBNUM,PBNAME,PBPID,PBMID,PBPMID,PBADDRESS,PBPRICE,PBAMOUT,PBFILENAME,PBDATE)
+ 		VALUES(BUY_SEQ.NEXTVAL,#{pbname},#{pbpid},#{pbmid},#{pbpmid},#{pbaddress},#{pbprice}*#{pbamout},#{pbamout},#{pbfilename},SYSDATE)
+ 	
+ 	</insert>	
+ 	<update id="productamount" parameterType="buyq">
+ 	UPDATE PRODUCT SET PSTOCK=PSTOCK - #{pbamout},PRATE= + #{pbamout} WHERE PID=#{pbpid}
+ 	</update>
+ 	
+ 	<delete id="cartdelete" parameterType="buyq">
+ 	DELETE FROM CART WHERE PRODUCT_ID = #{pbpid}
+ 	 
+ 	</delete>
+ 	
+ 	<select id="buylist" parameterType="String" resultType="buyq">
+ 	SELECT * FROM BUY WHERE PBMID=#{pbmid}
+ 	</select>
+ 	
+
+  
+ 
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

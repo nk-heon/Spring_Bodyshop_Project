@@ -14,5 +14,6 @@ public class ProductReviewDTO {
 	private String prcontents;
 	private String prid;
 	private int star;
+	private String prdate;
 
 }

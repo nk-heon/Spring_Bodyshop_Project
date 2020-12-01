@@ -43,5 +43,14 @@ public class ProductCommentService {
 			mav.setViewName("ProductV/PcommentreSuccess");
 		return mav;
 	}
+	//문의 상세보기
+	public ModelAndView pcommenview(ProductCommentDTO pcDTO) {
+	    mav = new ModelAndView();
+	    ProductCommentDTO pcomment = new ProductCommentDTO();
+	    pcomment = pcDAO.pcommentre(pcDTO);
+	    mav.addObject("pcview", pcomment);
+		mav.setViewName("ProductV/PcommenView");
+		return mav;
+	}
 
 }

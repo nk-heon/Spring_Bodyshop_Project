@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="BoardComment"> 
+ 	<insert id="commentWrite" parameterType="comment">
+		INSERT INTO ABOARDCOMMENT(CNUM,ACNUM,CWRITER,CCONTENTS) 
+			VALUES(CNUM_SEQ.NEXTVAL,#{acnum},#{cwriter},#{ccontents})
+	</insert>
+	
+	<select id="commentList" parameterType="int" resultType="comment">
+		SELECT * FROM ABOARDCOMMENT WHERE ACNUM=#{cbnumber} ORDER BY ACNUM DESC
+	</select>
+
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

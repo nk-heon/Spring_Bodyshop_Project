@@ -10,6 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
+#serchmember a:link{
+color: #6c7279;
+}
 html {
 	scroll-behavior: smooth;
 }
@@ -406,11 +409,6 @@ td {
 	transition: width ease-in-out 0.5s 0.1s;
 }
 
-* {
-	
-}
-
-
 
 body, select, button, table {
 	font-family: '나눔고딕', NanumGothic, '맑은 고딕', Malgun Gothic, '돋움', Dotum,
@@ -424,8 +422,6 @@ body, select, button, table {
 	top: 0;
 	left: 0;
 }
-
-
 
 
 /*  */
@@ -445,10 +441,6 @@ body, select, button, table {
 
 
 /* -------------------- */
-#layout_body body, #layout_body table, #layout_body div, #layout_body input,
-	#layout_body textarea, #layout_body select, #layout_body span {
-	
-}
 
 .keyboard_guide {
 	position: relative;
@@ -457,13 +449,7 @@ body, select, button, table {
 	text-align: center;
 }
 
-
-
 /*로그인--------  */
-#layout_body body, #layout_body table, #layout_body div, #layout_body input,
-	#layout_body textarea, #layout_body select, #layout_body span {
-	
-}
 
 .pd10 {
 	padding: 15px !important;
@@ -540,10 +526,6 @@ img, fieldset {
 }
 
 
-
-* {
-	
-}
 \fieldset {
 	display: block;
 	margin-inline-start: 2px;
@@ -604,13 +586,9 @@ a:-webkit-any-link {
 	letter-spacing: -1px;
 }
 /*-----------  */
+
 element.style {
 	width: 100%;
-}
-
-#layout_body body, #layout_body table, #layout_body div, #layout_body input,
-	#layout_body textarea, #layout_body select, #layout_body span {
-	
 }
 
 .login_form_box input.login_btn {
@@ -679,9 +657,7 @@ element.style {
 	padding-top: 20px !important;
 }
 
-* {
-	
-}
+
 
 div {
 	display: block;
@@ -717,9 +693,7 @@ body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, form, fieldset,
 	vertical-align: middle;
 }
 
-* {
-	
-}
+
 
 button {
 	appearance: button;
@@ -764,121 +738,11 @@ button {
     display: block;
     clear: both;
 }
-</style>
 
+/* ---------------  */
 
-<body>
-	<section class="banner" role="banner">
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-				style="padding: 4%;">&times;</a>
-			<div class="cboth section" style="text-align: center;">
-				<div class="dropdown">
-					<button onclick="myFunction()" class="dropbtn"
-						style="font-size: 25px;">회원가입</button>
-				</div>
-				<button class="dropbtn" style="font-size: 25px;">로그인</button>
-
-			</div>
-			<div class="cboth section1">
-				<a href="  장바구니    "> <img src="resources/images/bt_icon01.gif">
-				</a> <a href="      "> <img src="resources/images/bt_icon02.gif">
-				</a> <a href="      "> <img src="resources/images/bt_icon03.gif">
-				</a> <a href="      "> <img src="resources/images/bt_icon04.gif">
-				</a>
-			</div>
-			<div class="tab">
-				<button class="tablinks" onclick="openCity(event, 'Board')">게시판</button>
-				<button class="tablinks" onclick="openCity(event, 'Category')">카테고리</button>
-				<button class="tablinks" onclick="openCity(event, 'Community')">커뮤니티</button>
-				<button class="tablinks" onclick="openCity(event, 'Mypage')">마이페이지</button>
-				<button class="tablinks" onclick="openCity(event, 'Registration')">상품등록</button>
-
-			</div>
-			<div id="Board" class="tabcontent">
-				<a class="menu">상품게시판</a><br> <a class="menu">운동게시판</a><br>
-				<a class="menu">자유게시판</a><br>
-			</div>
-			<div id="Category" class="tabcontent">
-				<a class="menu">의류</a><br> <a class="menu">기구</a><br> <a
-					class="menu">식품</a><br> <a class="menu">트레이너</a><br>
-			</div>
-
-			<div id="Community" class="tabcontent">
-				<a class="menu">상품문의</a><br> <a class="menu">상품후기</a><br>
-				<a class="menu">1대1상담</a><br>
-			</div>
-
-			<div id="Mypage" class="tabcontent">
-				<a class="menu">내 정보</a><br> <a class="menu">주문/배송</a><br>
-				<a class="menu">고객센터</a><br>
-			</div>
-			<div id="Registration" class="tabcontent">
-				<a class="menu">상품등록</a><br> <a class="menu">트레이너등록</a><br>
-			</div>
-		</div>
-		<header id="header" class="fixed">
-			<div class="category_box" id="layout_header" style="border: none;">
-				<a href="#category"> <span
-					style="font-size: 25px; cursor: pointer" onclick="openNav()">&#9776;</span>
-				</a>
-			</div>
-			<div class="header-content clearfix" style="margin-right: 60px;">
-				<nav class="navigation" role="navigation">
-					<ul class="primary-nav">
-						<li><a href="#section1">운동 후기 </a></li>
-						<li><a href="#section2">베스트 상품 </a></li>
-						<li><a href="#section3">트레이너 </a></li>
-						<li><a href="#section4">운동 유튜브 </a></li>
-
-						<li>
-							<div class="search_box" style="border: none;">
-								<a href="#search" class="top_search" id="top_search"> <!--  검색     -->
-									<img src="resources/images/icon_search_48px.png"
-									style="width: 20px;">
-
-								</a>
-							</div>
-						</li>
-					</ul>
-
-				</nav>
-			</div>
-		</header>
-		
-	
-		
-		<div id="quick_layer" style="display: block;">
-			<table class="common_quick">
-				<tbody>
-					<tr>
-						<td><a href="http://localhost:8093/main/" class="relative"> <img
-								src="resources/images/ftr_home.png" width="26" height="20"
-								vspace="2">
-
-						</a></td>
-						<td><a href="https://www.youtube.com/"> <img
-								src="resources/images/ftr_cart.png" width="26" height="20"
-								vspace="2">
-
-						</a></td>
-						<td><a href="https://www.youtube.com/"> <img
-								src="resources/images/ftr_delivery.png" width="26" height="20"
-								vspace="2">
-
-						</a></td>
-						<td><a href="https://www.youtube.com/"> <img
-								src="resources/images/ftr_mypage.png" width="26" height="24"
-								vspace="2">
-
-						</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</section>
-	<div id="layout_body">
-		<style>
+<div id="layout_body">
+<style>
 .keyboard_guide {
 	position: relative;
 	padding: 5px 5px 3px 5px;
@@ -996,118 +860,150 @@ button {
 .sns_login_ul li span {
 	line-height: 22px;
 }
+</div>
+
 
 </style>
-		<script>
-			$(function() {
-				$(
-						"a[href='#keyboard_specialchars'], a[href='#keyboard_hangul']")
-						.click(
-								function() {
-									if ($(this).is(".opened")) {
-										$("span", this).html("▼");
-									} else {
-										$("span", this).html("▲");
-									}
+	
 
-									if ($(this).attr('href') == '#keyboard_specialchars') {
-										$("a[href='#keyboard_specialchars']")
-												.toggleClass('opened');
-										$("a[href='#keyboard_hangul']")
-												.removeClass('opened');
-										$("a[href='#keyboard_hangul'] span")
-												.html("▼");
-										$(".keyboard_hangul").hide();
-										$(".keyboard_specialchars").toggle();
-									} else {
-										$("a[href='#keyboard_hangul']")
-												.toggleClass('opened');
-										$("a[href='#keyboard_specialchars']")
-												.removeClass('opened');
-										$(
-												"a[href='#keyboard_specialchars'] span")
-												.html("▼");
-										$(".keyboard_specialchars").hide();
-										$(".keyboard_hangul").toggle();
-									}
-								});
-			});
 
-			$(function() {
-				$("form[name='loginForm'] input[name='userid']").focus();
-			});
 
-			function submitLoginForm(frm) {
-				if ($("input[name='save_id']").is(":checked")) {
-					$.cookie('save_userid', $("input[name='userid']", frm)
-							.val(), {
-						'expires' : 30,
-						'path' : '/'
-					});
-				} else {
-					$.cookie('save_userid', '', {
-						'expires' : -1,
-						'path' : '/'
-					});
-				}
+<body>
+<!-- 메뉴 바 회원가입 부분  -->
+	<section class="banner" role="banner">
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+				style="padding: 4%;">&times;</a>
+			<div class="cboth section" style="text-align: center;">
+				<div class="dropdown">
+					<button onclick="location.href='Joinform'" class="dropbtn"
+						style="font-size: 25px;">회원가입</button>
+				</div>
+				<button class="dropbtn" onclick="location.href='memberloginform'" style="font-size: 25px;">로그인</button>
 
-				if ($("input[name='save_pw']").is(":checked")) {
-					$.cookie('save_password', $("input[name='password']", frm)
-							.val(), {
-						'expires' : 30,
-						'path' : '/'
-					});
-				} else {
-					$.cookie('save_password', '', {
-						'expires' : -1,
-						'path' : '/'
-					});
-				}
+			</div>
+			<!--  메뉴 바 이미지 부분  -->
+			<div class="cboth section1">
+				<a href="  장바구니    "> <img src="resources/images/bt_icon01.gif"></a>
+				<a href="      "> <img src="resources/images/bt_icon02.gif"></a>
+				<a href="      "> <img src="resources/images/bt_icon03.gif"></a> 
+				<a href="      "> <img src="resources/images/bt_icon04.gif"></a>
+				
+			</div>
+			<!-- 메뉴 바 카테고르 부분  -->
+			<div class="tab">
+				<button class="tablinks" onclick="openCity(event, 'Board')">게시판</button>
+				<button class="tablinks" onclick="openCity(event, 'Category')">카테고리</button>
+				<button class="tablinks" onclick="openCity(event, 'Community')">커뮤니티</button>
+				<button class="tablinks" onclick="openCity(event, 'Mypage')">마이페이지</button>
+				<button class="tablinks" onclick="openCity(event, 'Registration')">상품등록</button>
+			</div>
+			<!-- 메뉴 바 게시판 부분  -->
+			<div id="Board" class="tabcontent">
+				<a class="menu">상품게시판</a><br> 
+				<a class="menu">자유게시판</a><br>
+				<a class="menu">운동게시판</a><br>
+			</div>
+			<!-- 메뉴 바 카테고리 부분  -->
+			<div id="Category" class="tabcontent">
+				<a class="menu">의류</a><br> <a class="menu">기구</a><br> <a
+					class="menu">식품</a><br> <a class="menu">트레이너</a><br>
+			</div>
+			<!-- 메뉴 바 커뮤니티 부분  -->
+			<div id="Community" class="tabcontent">
+				<a class="menu">상품문의</a><br> <a class="menu">상품후기</a><br>
+				<a class="menu">1대1상담</a><br>
+			</div>
+			<!-- 메뉴 바 마이페이지 부분  -->
+			<div id="Mypage" class="tabcontent">
+				<a class="menu">내 정보</a><br> <a class="menu">주문/배송</a><br>
+				<a class="menu">고객센터</a><br>
+			</div>
+			<div id="Registration" class="tabcontent">
+				<a class="menu">상품등록</a><br> <a class="menu">트레이너등록</a><br>
+			</div>
+		</div>
+		
+		<!-- 상단 바 전체 부분 -->
+		<header id="header" class="fixed" style="padding-bottom: 10px;">
+			<div class="category_box" id="layout_header" style="border: none;">
+				<a href="#category"> <span
+					style="font-size: 25px; cursor: pointer" onclick="openNav()">&#9776;</span>
+				</a>
+			</div>
+			<!-- 상단 바 오른쪽 글 부분   -->	
+			<div class="header-content clearfix" style="margin-right: 60px;">
+				<nav class="navigation" role="navigation">
+					<ul class="primary-nav">
+						<li><a href="#section1">로그인 </a></li>
+						<li>
+							<div class="search_box" style="border: none;">
+								<a href="#search" class="top_search" id="top_search"> <!--  검색     -->
+									<img src="resources/images/icon_search_48px.png"
+									style="width: 20px;">
 
-				return true;
-			}//t
-		</script>
-	</div>
+								</a>
+							</div>
+						</li>
+					</ul>
+
+				</nav>
+			</div>
+		</header>
+		
+	
+		<!-- 언더 바 부분   -->	
+		<div id="quick_layer" style="display: block;">
+			<table class="common_quick">
+				<tbody>
+					<tr>
+						<td><a href="http://localhost:8093/main/" class="relative"> <img
+								src="resources/images/ftr_home.png" width="26" height="20"
+								vspace="2">
+
+						</a></td>
+						<td><a href="https://www.youtube.com/"> <img
+								src="resources/images/ftr_cart.png" width="26" height="20"
+								vspace="2">
+
+						</a></td>
+						<td><a href="https://www.youtube.com/"> <img
+								src="resources/images/ftr_delivery.png" width="26" height="20"
+								vspace="2">
+
+						</a></td>
+						<td><a href="https://www.youtube.com/"> <img
+								src="resources/images/ftr_mypage.png" width="26" height="24"
+								vspace="2">
+
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
 	<div id="wrap">
 		<div id="layout_wrap">
 			<div id="layout_body">
-
 				<div class="pd10">
 					<!-- 로그인폼 -->
-					<div class="login_form_box">
-						
+					<div class="login_form_box">	
+						<fieldset>
 							<form action="memberlogin" method="post">
-							<input type="text" name="mid" id="mid" value=""
-									placeholder="아이디" tabindex="1" required="required">
-							 <input type="password" name="mpassword"
-									id="mpassword" placeholder="비밀번호" tabindex="2"
-									required="required">
-									
-									<a href="../member/find?mode=findid">아이디</a> /<a
-										href="../member/find?mode=findpw">비밀번호 찾기</a>
-										<input type="submit" value="로그인"
-						class="login_btn btn_important_large" style="width: 100%;"
-						tabindex="3">
+								<input type="text" name="mid" id="mid" placeholder="아이디" tabindex="1" required="required">
+							 		<input type="password" name="mpassword" id="mpassword" placeholder="비밀번호" tabindex="2" required="required">	
+								<input type="submit" value="로그인" class="login_btn btn_important_large" style="width: 100%;" tabindex="3">
 							</form>
-								</div>
+						</fieldset>
 					</div>
-					
-						
-							
-					
+				<div class="mgt5" style="margin-top: 15px; border-top: 2px solid #ddd">
+				<div class="pdt20 pdb10 fx14" style="color: blue"><a href="serchmemberform" style="color: blue">아이디/비밀번호찾기</a></div>
+					<div class="pdt20 pdb10 fx14" style="color: #616161">아직 회원이 아니세요?</div>
+					<button class="btn_normal_large" onclick="location.href='Joinform'" style="width: 100%">회원가입</button>
 				</div>
-				<div class="mgt5"
-					style="margin-top: 15px; border-top: 2px solid #ddd">
-					<div class="pdt20 pdb10 fx14" style="color: #616161">아직 회원이
-						아니세요?</div>
-					<button class="btn_normal_large"
-						onclick="location.href='Join'" 
-						style="width: 100%">회원가입</button>
-				</div>
-				<a href="serchmemberform">아이디/비밀번호찾기</a>
 			</div>
-
 		</div>
+	</div>
 		<div class="cboth section">
 		<h3>카카오로 로그인</h3>
 <a href="kakaologin">
@@ -1117,8 +1013,8 @@ button {
 <a href="naverlogin">
    <img src="${pageContext.request.contextPath}/resources/img/네이버 아이디로 로그인_축약형_Green.png/">
 </a>
-		</div>
-
+	</div>
+</div>
 
 <c:if test="${notVerify}">
 <script>
@@ -1130,8 +1026,6 @@ alert("이메일이 인증이 되지 않았습니다 이메일을 확인하시�
 alert("아이디나 비밀번호가 일치하지 않습니다");
 </script>
 </c:if>
-
-
 
 	<!-- 왼쪽 슬라이드 메뉴 스크립트  -->
 	<script>

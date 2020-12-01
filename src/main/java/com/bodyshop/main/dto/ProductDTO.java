@@ -11,12 +11,14 @@ import lombok.ToString;
 @ToString
 public class ProductDTO {
 	private String pproduct;
+	private String pproduct2;
 	private String pmid;
 	private String pid;
 	private String pname;
 	private String pprice;
 	private String pstock;
 	private String pdesc;
+	private String pdate;
 	
 	private MultipartFile pfile;
 	private String pfilename;

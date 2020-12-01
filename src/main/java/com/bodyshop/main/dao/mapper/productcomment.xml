@@ -4,7 +4,7 @@
  
  <mapper namespace="Pcomment"> 
     <insert id="pcomment1" parameterType="pcomment">
-       INSERT INTO PCOMMENT(PCNUMBER,PCPMID,PCPID,PCMID,PCONTENTS,SECRET,RESULT) VALUES(PCOMMENT_SEQ.NEXTVAL,#{pcpmid},#{pcpid},#{pcmid},#{pcontents},#{secret},#{result})
+       INSERT INTO PCOMMENT(PCNUMBER,PCPMID,PCPID,PCMID,PCONTENTS,SECRET,RESULT,PCDATE) VALUES(PCOMMENT_SEQ.NEXTVAL,#{pcpmid},#{pcpid},#{pcmid},#{pcontents},#{secret},#{result},SYSDATE)
     </insert>
     <select id="pclist" parameterType="String" resultType="pcomment">
       SELECT * FROM PCOMMENT WHERE PCPID=#{pcpid}
@@ -13,7 +13,7 @@
  	  SELECT * FROM PCOMMENT WHERE PCPID=#{pcpid} AND PCNUMBER=#{pcnumber}
  	</select>
  	<update id="pcommentre1" parameterType="pcomment">
- 	UPDATE PCOMMENT SET PCRESULT=#{pcresult},RESULT=#{result} WHERE PCPID=#{pcpid} AND PCNUMBER=#{pcnumber}
+ 	UPDATE PCOMMENT SET PCRESULT=#{pcresult},RESULT=#{result},PCREDATE=SYSDATE WHERE PCPID=#{pcpid} AND PCNUMBER=#{pcnumber}
  	</update>
  	
  	

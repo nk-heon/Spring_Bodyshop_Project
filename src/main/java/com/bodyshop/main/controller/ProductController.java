@@ -23,45 +23,30 @@ public class ProductController {
 	//상품 등록
 		@RequestMapping(value="/ProductWriteForm")
 		public String ProductWriteForm() {
-			
-			
 			return "ProductV/ProductWrite";
 		}
 		
-		
-		
 		@RequestMapping(value="/productwrite")
 		public ModelAndView ProductWrite(@ModelAttribute ProductDTO product) throws IllegalStateException, IOException {					
-			
 			mav = productService.ProductWrite(product);
-			
-			
-			
 			return mav;
 		}
-		//상품 목록
+		//상품 리스트 
 		@RequestMapping(value="/productlist")
 		public ModelAndView ProductList() {
-			
 			mav = new ModelAndView();
-			
 			mav = productService.ProductList();
-			
-			
 			return mav;
 		}
+		
 		//상세 조회
 		@RequestMapping(value="/productview")
 		public ModelAndView ProductView(@RequestParam ("pid") String pid) {
 			mav = new ModelAndView();
-			
 			mav = productService.ProductView(pid);
-			
-			
-			
-			
 			return mav;
 		}
+		
 		//상품문의
 		@RequestMapping(value="/pcomment")
 		public ModelAndView pcomment(@RequestParam("pid") String pid) {
@@ -72,40 +57,36 @@ public class ProductController {
 		//상품삭제	
 		@RequestMapping(value="/productdelete")
 		public ModelAndView ProductDelete(@RequestParam ("pid") String pid) {
-			
 			mav = new ModelAndView();
-			
 			mav = productService.ProductDelete(pid);
-			
-			
 			return mav;
 		}
+		
 		//상품 수정
 		@RequestMapping(value="/productUpdateForm")
 		public String ProductUpdateForm() {
-			
-			
 			return "ProductV/ProductUpdate";
 		}
 		
 		@RequestMapping(value="/productUpdate")
 		public ModelAndView ProductUpdate(@RequestParam ("pid") String pid) {
-			
 			mav = new ModelAndView();
-			
 			mav = productService.ProductUpdate(pid);
-			
-			
 			return mav;
 		}
+		
 		@RequestMapping(value="/productuptateprocess")
 		public ModelAndView ProductUpdateProcess(@ModelAttribute ProductDTO product) {
-			
 			mav = new ModelAndView();
-			
 			mav = productService.ProductUpdateProcess(product);
-			
-			
+			return mav;
+		}
+		
+		//페이징
+		@RequestMapping(value="/productlistpaging")
+		public ModelAndView productListPaging(
+			@RequestParam(value="page",required=false,defaultValue="1") int page, @RequestParam("pproduct")String pproduct) {
+			mav = productService.productListPaging(page,pproduct);
 			return mav;
 		}
 
